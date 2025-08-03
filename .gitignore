@@ -1,0 +1,4 @@
+Inspiration/
+.venv/
+__pycache__/
+*.pyc
