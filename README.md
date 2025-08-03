@@ -18,14 +18,14 @@ The Qur'an contains:
 ## Technical Architecture
 
 ### Hardware Requirements
-- **Windows 11** with WSL2/Ubuntu for FlashAttention
+- **Native Windows 11** (no WSL required)
 - **RTX 4070 Super** (12GB VRAM) + 32GB RAM
 - **Open-weight models** optimized for 45+ tokens/second
 
 ### Core Components
 
 1. **Enhanced LLM Engine** (`src/core/`)
-   - FlashAttention-2 optimization
+   - xFormers attention optimization (Windows-native)
    - Permanent Qur'an context (always in memory)
    - Weight-level alignment integration
    - 14B+ parameter models with 4-bit quantization
@@ -56,23 +56,22 @@ The Qur'an contains:
 
 ## Installation
 
-### 1. Environment Setup (Windows 11 + WSL)
-```bash
-# Install WSL2 with Ubuntu (for FlashAttention)
-wsl --install -d Ubuntu-22.04
+### 1. Environment Setup (Native Windows 11)
+```cmd
+# Download and install CUDA Toolkit 12.1+ from NVIDIA:
+# https://developer.nvidia.com/cuda-downloads
 
-# In WSL, set up Python environment
-python3.11 -m venv quranic_alignment_env
-source quranic_alignment_env/bin/activate
+# Install Python 3.11+ from python.org or Microsoft Store
 
-# Install CUDA toolkit
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.0-1_all.deb
-sudo dpkg -i cuda-keyring_1.0-1_all.deb
-sudo apt-get update
-sudo apt-get -y install cuda-toolkit-12-1
+# Set up Python virtual environment
+python -m venv quranic_alignment_env
+quranic_alignment_env\Scripts\activate
 
-# Install FlashAttention
-pip install flash-attn --no-build-isolation
+# Install PyTorch with CUDA support FIRST
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+# Install xFormers for optimized attention (better Windows support than FlashAttention)
+pip install xformers
 ```
 
 ### 2. Dependencies

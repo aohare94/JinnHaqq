@@ -1,16 +1,17 @@
 # ============================================================================
 #                QURANIC AI ALIGNMENT PROJECT v2.0 REQUIREMENTS
 # ============================================================================
-# Optimized for Windows 11 + WSL2 + RTX 4070 Super (12GB VRAM) + 32GB RAM
-# Designed for maximum token speed with FlashAttention-2 and larger models
+# Optimized for NATIVE WINDOWS 11 + RTX 4070 Super (12GB VRAM) + 32GB RAM
+# Designed for maximum token speed with optimized attention and larger models
 # Enhanced for structural analysis, recursive understanding, and weight alignment
 # ============================================================================
 
-# CRITICAL: Install in WSL2 Ubuntu environment
-# 1. Install CUDA Toolkit 12.1+ in WSL2
+# CRITICAL: Install on native Windows 11
+# 1. Install CUDA Toolkit 12.1+ for Windows from NVIDIA
 # 2. Install PyTorch with CUDA support FIRST:
 #    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-# 3. Install FlashAttention: pip install flash-attn --no-build-isolation
+# 3. For attention optimization, we'll use xFormers (better Windows support):
+#    pip install xformers
 
 # ===== CORE ML/LLM FRAMEWORK =====
 torch>=2.1.0
@@ -23,10 +24,10 @@ bitsandbytes>=0.42.0
 optimum>=1.16.0
 auto-gptq>=0.5.0
 
-# Flash Attention and Performance
-# Install separately: pip install flash-attn --no-build-isolation
+# Attention Optimization and Performance (Windows-compatible)
+# Install separately: pip install xformers
 einops>=0.7.0
-triton>=2.1.0
+# triton>=2.1.0  # Skip triton on Windows - limited support
 
 # ===== EMBEDDINGS AND SIMILARITY =====
 sentence-transformers>=2.2.2
@@ -50,7 +51,7 @@ tashaphyne>=0.4.0
 # ===== STRUCTURAL ANALYSIS =====
 networkx>=3.2
 igraph>=0.10.8
-graph-tool; sys_platform == "linux"  # Only on Linux/WSL
+# graph-tool  # Skip on Windows - compilation issues, use igraph instead
 python-louvain>=0.16
 community>=1.0.0
 graphviz>=0.20.1
@@ -60,7 +61,7 @@ pydot>=1.4.2
 numpy>=1.24.0
 pandas>=2.1.0
 numba>=0.58.0
-cupy-cuda12x>=12.3.0  # For GPU acceleration
+# cupy-cuda12x>=12.3.0  # For GPU acceleration - install separately if needed
 sparse>=0.14.0
 sympy>=1.12
 
