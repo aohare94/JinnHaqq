@@ -1,0 +1,184 @@
+# ============================================================================
+#           QURANIC AI ALIGNMENT PROJECT v2.0 - WINDOWS REQUIREMENTS
+# ============================================================================
+# Optimized for Windows 11 + RTX 4070 Super (12GB VRAM) + 32GB RAM
+# Removes packages that cause compilation issues on Windows
+# Uses Windows-compatible alternatives where possible
+# ============================================================================
+
+# IMPORTANT: Install PyTorch FIRST using the improved setup script!
+# This will handle CUDA compatibility automatically
+
+# ===== CORE ML/LLM FRAMEWORK =====
+# PyTorch installed separately by setup script
+transformers>=4.37.0
+accelerate>=0.25.0
+peft>=0.7.0
+optimum>=1.16.0
+
+# ===== ATTENTION OPTIMIZATION (Windows Compatible) =====
+# xFormers will be installed by setup script as FlashAttention alternative
+einops>=0.7.0
+# Note: FlashAttention-2 has poor Windows support, using xFormers instead
+
+# ===== EMBEDDINGS AND SIMILARITY =====
+sentence-transformers>=2.2.2
+faiss-cpu>=1.7.4
+scikit-learn>=1.3.0
+scipy>=1.11.0
+umap-learn>=0.5.4
+hdbscan>=0.8.29
+
+# ===== QURANIC TEXT PROCESSING =====
+datasets>=2.16.0
+tokenizers>=0.15.0
+arabic-reshaper>=3.0.0
+python-bidi>=0.4.2
+pyarabic>=0.6.15
+camel-tools>=1.5.2
+qalsadi>=0.4.0
+tashaphyne>=0.4.0
+
+# ===== STRUCTURAL ANALYSIS (Windows Compatible) =====
+networkx>=3.2
+igraph>=0.10.8
+# Removed: graph-tool (compilation issues on Windows)
+python-louvain>=0.16
+community>=1.0.0
+graphviz>=0.20.1
+pydot>=1.4.2
+
+# ===== NUMERICAL COMPUTING =====
+numpy>=1.24.0
+pandas>=2.1.0
+numba>=0.58.0
+sparse>=0.14.0
+sympy>=1.12
+
+# ===== VISUALIZATION AND ANALYSIS =====
+matplotlib>=3.8.0
+seaborn>=0.13.0
+plotly>=5.17.0
+dash>=2.16.0
+bokeh>=3.3.0
+altair>=5.2.0
+# Removed: holoviews, datashader, panel (can cause issues on Windows)
+
+# ===== INTERACTIVE TERMINAL AND UI =====
+rich>=13.7.0
+textual>=0.46.0
+typer>=0.9.0
+click>=8.1.0
+prompt-toolkit>=3.0.41
+questionary>=2.0.1
+colorama>=0.4.6
+termcolor>=2.4.0
+
+# ===== LANGUAGE PROCESSING =====
+nltk>=3.8.1
+spacy>=3.7.2
+# Removed: stanza (can be heavy), polyglot (compilation issues)
+langdetect>=1.0.9
+# Removed: fasttext (compilation issues)
+
+# ===== DEVELOPMENT AND UTILITIES =====
+tqdm>=4.66.0
+loguru>=0.7.2
+python-dotenv>=1.0.0
+pyyaml>=6.0.1
+toml>=0.10.2
+jsonlines>=4.0.0
+orjson>=3.9.10
+msgpack>=1.0.7
+joblib>=1.3.2
+
+# ===== API AND MODEL SERVING =====
+fastapi>=0.108.0
+uvicorn[standard]>=0.25.0
+gradio>=4.8.0
+streamlit>=1.29.0
+websockets>=12.0
+aiohttp>=3.9.0
+httpx>=0.26.0
+
+# ===== MEMORY AND PERFORMANCE =====
+psutil>=5.9.6
+memory-profiler>=0.61.0
+line-profiler>=4.1.1
+# Removed: py-spy, scalene (can have Windows issues)
+pympler>=0.9
+
+# ===== ALIGNMENT AND TRAINING (Windows Compatible) =====
+# Removed: deepspeed (limited Windows support)
+pytorch-lightning>=2.1.0
+wandb>=0.16.0
+tensorboard>=2.15.0
+mlflow>=2.8.0
+optuna>=3.5.0
+
+# ===== CONCURRENT AND ASYNC =====
+# Note: asyncio and concurrent.futures are built-in
+multiprocessing-logging>=0.3.4
+# Removed: ray (can have Windows issues)
+
+# ===== TESTING AND QUALITY =====
+pytest>=7.4.0
+pytest-asyncio>=0.23.0
+pytest-cov>=4.1.0
+black>=23.12.0
+isort>=5.13.0
+flake8>=7.0.0
+mypy>=1.8.0
+bandit>=1.7.5
+
+# ===== VERSION CONTROL AND MODELS =====
+huggingface-hub>=0.19.0
+gitpython>=3.1.40
+# Removed: dvc (can be complex on Windows)
+
+# ===== ARABIC AND ISLAMIC RESOURCES =====
+hijri-converter>=2.3.1
+islamic-calendar>=1.0.1
+pyislam>=1.0.0
+
+# ===== MATHEMATICAL AND SCIENTIFIC =====
+statsmodels>=0.14.0
+patsy>=0.5.4
+formulaic>=0.6.6
+mpmath>=1.3.0
+
+# ===== CACHING AND STORAGE =====
+redis>=5.0.1
+# Note: sqlite3 is built-in
+h5py>=3.10.0
+tables>=3.9.2
+zarr>=2.16.0
+
+# ===== WEB SCRAPING (for Quranic resources) =====
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+scrapy>=2.11.0
+selenium>=4.16.0
+
+# ===== CONFIGURATION MANAGEMENT =====
+hydra-core>=1.3.2
+omegaconf>=2.3.0
+configargparse>=1.7
+
+# ===== JUPYTER AND NOTEBOOKS =====
+jupyter>=1.0.0
+jupyterlab>=4.0.9
+ipywidgets>=8.1.1
+notebook>=7.0.6
+
+# ===== ADDITIONAL UTILITIES =====
+fire>=0.5.0
+click-completion>=0.5.2
+python-dateutil>=2.8.2
+packaging>=23.2
+importlib-metadata>=7.0.0
+
+# ===== OPTIONAL GPU PACKAGES (installed by setup script) =====
+# bitsandbytes (installed separately - often problematic on Windows)
+# auto-gptq (installed separately if needed)
+# Note: Many quantization libraries have poor Windows support
