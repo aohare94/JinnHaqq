@@ -1,0 +1,101 @@
+# ============================================================================
+#                    QURAN ALIGNMENT PROJECT REQUIREMENTS
+# ============================================================================
+# Optimized for RTX 4070 Super (12GB VRAM) + 32GB RAM
+# Designed for maximum token speed with FlashAttention-2
+# ============================================================================
+
+# CRITICAL: Install PyTorch FIRST with CUDA support
+# Run: pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+# Core ML/LLM Framework
+transformers>=4.35.0
+accelerate>=0.24.0
+peft>=0.6.0
+bitsandbytes>=0.41.0
+optimum>=1.14.0
+
+# Flash Attention (install separately with: pip install flash-attn --no-build-isolation)
+# einops>=0.7.0  # Required for FlashAttention
+
+# Embeddings and Similarity
+sentence-transformers>=2.2.2
+faiss-cpu>=1.7.4
+sklearn
+scipy>=1.11.0
+
+# Text Processing and Analysis
+datasets>=2.14.0
+tokenizers>=0.14.0
+nltk>=3.8.1
+spacy>=3.7.0
+arabic-reshaper>=3.0.0
+python-bidi>=0.4.2
+
+# Numerical Computing
+numpy>=1.24.0
+pandas>=2.0.0
+networkx>=3.1
+
+# Visualization and Analysis
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.17.0
+dash>=2.14.0
+bokeh>=3.2.0
+altair>=5.1.0
+
+# Interactive Terminal and UI
+rich>=13.6.0
+typer>=0.9.0
+click>=8.1.0
+prompt-toolkit>=3.0.39
+textual>=0.38.0
+
+# Development and Utilities
+tqdm>=4.66.0
+loguru>=0.7.0
+python-dotenv>=1.0.0
+pyyaml>=6.0.1
+toml>=0.10.2
+jsonlines>=4.0.0
+
+# API and Model Serving
+fastapi>=0.103.0
+uvicorn>=0.23.0
+gradio>=3.50.0
+
+# Memory and Performance Optimization
+psutil>=5.9.0
+memory-profiler>=0.61.0
+line-profiler>=4.1.0
+
+# Arabic Text Processing
+pyarabic>=0.6.15
+camel-tools>=1.5.0
+
+# Graph Analysis (for ring structures)
+igraph>=0.10.6
+graph-tool; sys_platform != "win32"  # Skip on Windows due to compilation issues
+
+# JSON and Data Handling
+orjson>=3.9.0
+msgpack>=1.0.0
+
+# Testing and Quality
+pytest>=7.4.0
+black>=23.9.0
+isort>=5.12.0
+flake8>=6.1.0
+
+# Version control for models
+huggingface-hub>=0.17.0
+gitpython>=3.1.0
+
+# Async and Concurrency
+asyncio
+aiohttp>=3.8.0
+concurrent-futures; python_version < "3.2"
+
+# Model quantization and optimization
+auto-gptq>=0.4.0; sys_platform != "darwin"  # Skip on macOS
